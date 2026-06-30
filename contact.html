@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – Shree Kateel Holidays</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+   :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --dark: #0d0d0d;
+      --dark2: #111827;
+      --off-white: #f5f0e8;
+      --text-muted: #7a7a7a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    
+    /* ─── NAVBAR ─── */
+  .navbar {
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      padding: 14px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      color: #fff !important;
+      font-size: 1rem;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+    }
+    .navbar-brand span { color: var(--gold); display: block; font-size: 1.3rem; }
+    .nav-link {
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px !important;
+      transition: color 0.25s;
+    }
+    .nav-link:hover { color: var(--gold) !important; }
+    .btn-book {
+      background: var(--gold);
+      color: #fff !important;
+      border-radius: 2px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 22px !important;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-book:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ─── MOSAIC HERO ─── */
+    .mosaic-hero {
+      margin-top: 50px;
+      width: 100%;
+      height: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 5-panel diagonal mosaic */
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      height: 100%;
+      gap: 3px;
+    }
+    .mosaic-panel {
+      overflow: hidden;
+      position: relative;
+    }
+    .mosaic-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .mosaic-panel:hover img { transform: scale(1.06); }
+
+    /* diagonal clip for alternating panels */
+    .mosaic-panel:nth-child(1) { clip-path: polygon(0 0, 110% 0, 90% 100%, 0 100%); }
+    .mosaic-panel:nth-child(2) { clip-path: polygon(10% 0, 110% 0, 90% 100%, -10% 100%); }
+    .mosaic-panel:nth-child(3) { clip-path: polygon(10% 0, 110% 0, 90% 100%, -10% 100%); }
+    .mosaic-panel:nth-child(4) { clip-path: polygon(10% 0, 110% 0, 90% 100%, -10% 100%); }
+    .mosaic-panel:nth-child(5) { clip-path: polygon(10% 0, 100% 0, 100% 100%, -10% 100%); }
+
+    /* overlay text centred across all panels */
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+    }
+    .mosaic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: #fff;
+      font-weight: 700;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+      margin-bottom: 12px;
+    }
+    .breadcrumb-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .breadcrumb-bar a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .breadcrumb-bar a:hover { color: var(--gold); }
+    .breadcrumb-bar .sep { color: rgba(255,255,255,0.35); font-size: 0.7rem; }
+    .breadcrumb-bar .current {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ─── INTRO SECTION ─── */
+    .intro-section { padding: 72px 0 50px; }
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .intro-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.2;
+      color: #111;
+      font-weight: 700;
+    }
+    .intro-title .highlight { color: var(--gold); }
+
+    /* ─── CONTACT BLOCK ─── */
+    .contact-section { padding: 10px 0 80px; }
+
+    /* info items */
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 44px;
+    }
+    .ci-icon {
+      width: 54px; height: 54px; min-width: 54px;
+      background: #f5f3ef;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: background 0.3s;
+    }
+    .contact-info-item:hover .ci-icon { background: rgba(201,168,76,0.12); }
+    .ci-icon i { color: var(--gold); font-size: 1.3rem; }
+    .ci-text h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+    }
+    .ci-text p {
+      font-size: 0.87rem;
+      color: #555;
+      line-height: 1.75;
+      font-weight: 300;
+      margin: 0;
+    }
+    .ci-text a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .ci-text a:hover { color: var(--gold); }
+
+    /* contact form card */
+    .contact-card {
+      background: #f5f3ef;
+      border-radius: 6px;
+      padding: 34px 30px 38px;
+      border: 1px solid #e8e4dc;
+    }
+    .contact-card-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 24px;
+    }
+    .contact-card .form-control {
+      background: #fff;
+      border: 1px solid #e0dcd4;
+      border-radius: 3px;
+      font-size: 0.88rem;
+      font-family: 'Jost', sans-serif;
+      color: #444;
+      padding: 13px 16px;
+      margin-bottom: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-card .form-control:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+      outline: none;
+    }
+    .contact-card textarea.form-control {
+      resize: none;
+      min-height: 140px;
+    }
+    .contact-card .form-control::placeholder { color: #aaa; }
+    .btn-send {
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      width: 100%;
+      padding: 14px;
+      margin-top: 6px;
+      transition: background 0.25s, transform 0.2s;
+      cursor: pointer;
+    }
+    .btn-send:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ─── MAP ─── */
+    .map-section {
+      width: 100%;
+      height: 360px;
+      border: black;
+      display: block;
+    }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--dark); color: rgba(255,255,255,0.75); padding: 4rem 0 2rem; }
+    .footer-brand { display: flex; flex-direction: column; line-height: 1; color: #fff;
+      font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.18em;
+      font-size: 0.65rem; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-brand span { font-family: 'Playfair Display', serif; font-size: 2rem;
+      font-weight: 900; letter-spacing: 0.04em; color: #fff; line-height: 1.1; }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.45);
+      line-height: 1.6; max-width: 220px; margin-bottom: 1.5rem; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15); display: inline-flex;
+      align-items: center; justify-content: center; color: rgba(255,255,255,0.6);
+      font-size: 0.95rem; text-decoration: none; transition: all 0.3s; margin-right: 0.4rem; }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-heading { font-size: 1rem; font-weight: 600; color: #fff;
+      letter-spacing: 0.06em; margin-bottom: 1.2rem; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 0.55rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.25s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-address { font-size: 0.83rem; color: rgba(255,255,255,0.6);
+      line-height: 1.6; margin-bottom: 1.4rem; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.83rem; color: rgba(255,255,255,0.6); margin-bottom: 0.7rem; }
+    .footer-contact-item i { color: var(--gold); font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+    .footer-divider { border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0 1.5rem; }
+    .footer-bottom { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; }
+
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      SHREE KATEEL
+      <span>HOLIDAYS</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span style="color:#fff"><i class="fas fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="package.html">Package</a></li>
+        <li class="nav-item"><a class="nav-link" href="nearby.html">Near by Attraction</a></li>
+        <li class="nav-item"><a class="nav-link" href="fleets.html">Fleets</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+      </ul>
+      <a href="book.html" class="nav-link btn-book">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════ MOSAIC HERO ═══════════════ -->
+<div class="mosaic-hero">
+  <div class="mosaic-grid">
+    <div class="mosaic-panel">
+      <img src="https://media.assettype.com/deccanherald%2Fimport%2Fsites%2Fdh%2Ffiles%2Farticle_images%2F2020%2F05%2F19%2Ffile729i4x36odlv8s0do5j-701459041-1539459901.jpg?w=900&auto=format%2Ccompress&fit=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" alt="Temple"/>
+    </div>
+    <div class="mosaic-panel">
+      <img src="https://karnatakatourism.org/ci/q_85,w_636/cms/wp-content/uploads/2026/03/Surali-palace-Kudubi-4png.avif" alt="Beach aerial"/>
+    </div>
+    <div class="mosaic-panel">
+      <img src="https://media.gettyimages.com/id/808158390/photo/standalone-photo-a-performer-from-the-yakshagana-kendra-cultural-troupe-during-the-festival-of.jpg?s=612x612&w=0&k=20&c=pFAa634rTX0_6n51geVH4W2JOFj-_fieW71-TUT4y_c=">
+    </div>
+    <div class="mosaic-panel">
+      <img src="https://media.gettyimages.com/id/934119620/photo/kadri-kambala-festival.jpg?s=612x612&w=0&k=20&c=QWQlGUOfzP-iGK8XW5tTUi5N0UcEf4ijrgbIsgCZBcE=" alt="Stairway temple"/>
+    </div>
+    <div class="mosaic-panel">
+      <img src="https://media.gettyimages.com/id/919286176/photo/fishermen-in-river-ganges.jpg?s=612x612&w=0&k=20&c=DftD3udqmTFo-lCNDcQ7Y7pG6OZEukLCvHL2EZCmJuI=" alt="Island"/>
+    </div>
+  </div>
+  <!-- overlay with title + breadcrumb -->
+  <div class="mosaic-overlay">
+    <h1 class="mosaic-title">Contact Us</h1>
+    <div class="breadcrumb-bar">
+      <a href="#">Home</a>
+      <span class="sep">›</span>
+      <span class="current">Contact Us</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ INTRO ═══════════════ -->
+<section class="intro-section">
+  <div class="container">
+    <p class="section-label">Explore Our Package</p>
+    <h2 class="intro-title">
+      Ready to Travel Us for<br>
+      a Greater <span class="highlight">Adventure!</span>
+    </h2>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT BLOCK ═══════════════ -->
+<section class="contact-section">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Left: contact info -->
+      <div class="col-lg-5">
+
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
+          <div class="ci-text">
+            <h5>Location</h5>
+            <p>Sri Rama nivas, 1st block,<br>near Ganapathi Temple,<br>Katipalla, Mangalore<br>-575030</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div class="ci-text">
+            <h5>Email</h5>
+            <p><a href="mailto:shreekateelholidays6322@gmail.com">shreekateelholidays6322@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="fas fa-phone"></i></div>
+          <div class="ci-text">
+            <h5>Telephone</h5>
+            <p><a href="tel:+919380575315">+919380575315</a></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="col-lg-7">
+        <div class="contact-card">
+          <p class="contact-card-title">Send Us a Message</p>
+          <input type="text" class="form-control" placeholder="Name"/>
+          <input type="tel" class="form-control" placeholder="Phone"/>
+          <textarea class="form-control" placeholder="Write Message"></textarea>
+          <button class="btn-send">Send Message</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MAP ═══════════════ -->
+<iframe
+  class="map-section"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.2940427386564!2d74.82738687507716!3d12.941197887361744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b01d3a40001%3A0x5a6be1c6456f2b2e!2sKatipalla%2C%20Mangaluru%2C%20Karnataka%20575030!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  title="Shree Kateel Holidays Location">
+</iframe>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand">
+            SHREE KATEEL
+            <span>HOLIDAYS</span>
+          </div>
+          <p class="footer-tagline">Seamless travel, effortless rides—because every journey matters!</p>
+          <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+        <h6 class="footer-title">Links</h6>
+        <ul class="footer-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="package.html">Package</a></li>
+          <li><a href="nearby.html">Near By Attractions</a></li>
+          <li><a href="fleets.html">Fleets</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+    <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Location</h4>
+          <p class="footer-address">Sri Rama nivas, 1st block, near Ganapathi Temple, Katipalla, Mangalore – 575030</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <span>shreekateelholidays6322@gmail.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <span>+919380575315</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="footer-bottom">© 2025 Shree Kateel Holidays. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

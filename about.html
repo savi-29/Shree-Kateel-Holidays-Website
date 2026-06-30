@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – Shree Kateel Holidays</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+   :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --dark: #0d0d0d;
+      --dark2: #111827;
+      --off-white: #f5f0e8;
+      --text-muted: #7a7a7a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+/* ─── NAVBAR ─── */
+    .navbar {
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      padding: 14px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      color: #fff !important;
+      font-size: 1rem;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+    }
+    .navbar-brand span { color: var(--gold); display: block; font-size: 1.3rem; }
+    .nav-link {
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px !important;
+      transition: color 0.25s;
+    }
+    .nav-link:hover { color: var(--gold) !important; }
+    .btn-book {
+      background: var(--gold);
+      color: #fff !important;
+      border-radius: 2px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 22px !important;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-book:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ─── HERO BANNER ─── */
+    .page-hero {
+      min-height: 55vh;
+      background: linear-gradient(to right, rgba(0,0,0,0.78) 45%, rgba(0,0,0,0.4) 100%),
+        url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/06/a4/02/jain-temple-varanga.jpg?w=1100&h=600&s=1') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding-top: 150px;
+       padding-bottom: 80px;
+    }
+    .hero-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: #fff;
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .hero-title em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.15em;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      font-weight: 300;
+      max-width: 400px;
+      line-height: 1.75;
+      margin-top: 14px;
+    }
+    .breadcrumb-bar {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .breadcrumb-bar a {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .breadcrumb-bar a:hover { color: var(--gold); }
+    .breadcrumb-bar span {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.7rem;
+    }
+    .breadcrumb-bar .current {
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ─── SECTION LABELS ─── */
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.55rem, 3vw, 2.3rem);
+      line-height: 1.25;
+      color: #111;
+    }
+    .divider-gold {
+      width: 44px; height: 2px;
+      background: var(--gold);
+      margin: 14px 0 22px;
+    }
+
+    /* ─── ABOUT SECTION ─── */
+    .about-content { padding: 90px 0; }
+    .about-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .about-img-2 {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-top: 36px;
+      display: block;
+    }
+    .about-content p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .about-content p:last-child { margin-bottom: 0; }
+
+    /* ─── OUR VALUES ─── */
+    .values-section {
+      padding: 90px 0;
+      background: #fafafa;
+    }
+    .values-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      text-align: center;
+      color: #111;
+      margin-bottom: 48px;
+    }
+    .value-card {
+      background: #f0eeea;
+      border-radius: 4px;
+      padding: 26px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 16px;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+      border-left: 3px solid transparent;
+    }
+    .value-card:hover {
+      background: #fff;
+      box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+      transform: translateX(6px);
+      border-left-color: var(--gold);
+    }
+    .value-icon {
+      width: 48px; height: 48px; min-width: 48px;
+      background: #fff;
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: background 0.3s;
+    }
+    .value-card:hover .value-icon { background: rgba(201,168,76,0.1); }
+    .value-icon i { color: var(--gold); font-size: 1.3rem; }
+    .value-text h6 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 5px;
+    }
+    .value-text p {
+      font-size: 0.83rem;
+      color: #666;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--dark); color: rgba(255,255,255,0.75); padding: 4rem 0 2rem; }
+    .footer-brand { display: flex; flex-direction: column; line-height: 1; color: #fff;
+      font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.18em;
+      font-size: 0.65rem; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-brand span { font-family: 'Playfair Display', serif; font-size: 2rem;
+      font-weight: 900; letter-spacing: 0.04em; color: #fff; line-height: 1.1; }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.45);
+      line-height: 1.6; max-width: 220px; margin-bottom: 1.5rem; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15); display: inline-flex;
+      align-items: center; justify-content: center; color: rgba(255,255,255,0.6);
+      font-size: 0.95rem; text-decoration: none; transition: all 0.3s; margin-right: 0.4rem; }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-heading { font-size: 1rem; font-weight: 600; color: #fff;
+      letter-spacing: 0.06em; margin-bottom: 1.2rem; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 0.55rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.25s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-address { font-size: 0.83rem; color: rgba(255,255,255,0.6);
+      line-height: 1.6; margin-bottom: 1.4rem; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.83rem; color: rgba(255,255,255,0.6); margin-bottom: 0.7rem; }
+    .footer-contact-item i { color: var(--gold); font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+    .footer-divider { border-top: 1px solid rgba(255,255,255,0.08); margin: 2.5rem 0 1.5rem; }
+    .footer-bottom { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      SHREE KATEEL
+      <span>HOLIDAYS</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span style="color:#fff"><i class="fas fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="package.html">Package</a></li>
+        <li class="nav-item"><a class="nav-link" href="nearby.html">Near by Attraction</a></li>
+        <li class="nav-item"><a class="nav-link" href="fleets.html">Fleets</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+      </ul>
+      <a href="book.html" class="nav-link btn-book">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO BANNER ═══════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <p class="hero-label">About Us</p>
+    <h1 class="hero-title">
+      We Create<br>
+      Journey That<br>
+      <em>stay with you.</em>
+    </h1>
+    <p class="hero-sub">Shree Kateel Holidays is a trusted travel partner delivering seamless and memorable experiences across Mangalore and beyond</p>
+    <div class="breadcrumb-bar">
+      <a href="home.html">Home</a>
+      <span>›</span>
+      <span class="current">About Us</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT CONTENT ═══════════════ -->
+<section class="about-content">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Left: images -->
+      <div class="col-lg-4">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Travel Scene"
+          class="about-img"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Yakshaganads.jpg"
+          alt="Nature Scene"
+          class="about-img-2"
+        />
+      </div>
+
+      <!-- Right: text -->
+      <div class="col-lg-8 ps-lg-5">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">We're Most Trusted Travel Partner Around The World</h2>
+        <div class="divider-gold"></div>
+
+        <p>Shree Kateel Holidays – Is a Synonym for Reliability, Comfort and Hassle free experience when it comes to travel. The pioneers of Corporate Car Rental Service providers in Mangalore delivering the riders with excellent services since its inception.</p>
+
+        <p>We excel with our experience of over two decades and have been revolutionizing in the history of Corporate car rentals service providing in Mangalore. Our wide range of services in Corporate, Daily Travel and Employee Transportation and Tourism have ensured a hassle free, quick and extravagant experience over the years. At Shree Kateel Holidays, you are just not booking our services, you are entrusting a journey to be cherished.</p>
+
+        <p>We extend a wide-range of rental services with our enormous fleet of cars. Our services like Corporate & Luxury Car Hire, Cabs on Call, Fleet Management, Employee Transportation, Surface Transportation, Car Hires for all types of Events always ensures a quicker and hassle-free travel experience for our riders. We also provide Airport Transfers at all times.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ OUR VALUES ═══════════════ -->
+<section class="values-section">
+  <div class="container">
+    <h2 class="values-title">Our Value</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-handshake"></i></div>
+          <div class="value-text">
+            <h6>Trust &amp; Reliability</h6>
+            <p>We build lasting relationships by delivering on every promise. Our clients trust us with their journeys because we've earned it through consistent, dependable service.</p>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-award"></i></div>
+          <div class="value-text">
+            <h6>Excellence in Service</h6>
+            <p>We hold ourselves to the highest standards. Every ride, every trip, every interaction is an opportunity to exceed expectations and set a new benchmark.</p>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-users"></i></div>
+          <div class="value-text">
+            <h6>Customer First</h6>
+            <p>Our customers are at the heart of everything we do. We listen, we adapt, and we ensure every journey is tailored to their needs and comfort.</p>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <div class="value-text">
+            <h6>Local Expertise</h6>
+            <p>With decades of experience in Mangalore and beyond, we bring insider knowledge and local connections that turn every trip into an extraordinary adventure.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand">
+          SHREE KATEEL
+          <span>HOLIDAYS</span>
+        </div>
+        <p class="tagline">Seamless travel, effortless rides—because every journey matters!</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+       <div class="col-lg-2 col-md-6">
+        <h6 class="footer-title">Links</h6>
+        <ul class="footer-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="package.html">Package</a></li>
+          <li><a href="nearby.html">Near By Attractions</a></li>
+          <li><a href="fleets.html">Fleets</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Location</h4>
+          <p class="footer-address">Sri Rama nivas, 1st block, near Ganapathi Temple, Katipalla, Mangalore – 575030</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Contact Us</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <span>shreekateelholidays6322@gmail.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <span>+919380575315</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="footer-bottom">© 2025 Shree Kateel Holidays. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
